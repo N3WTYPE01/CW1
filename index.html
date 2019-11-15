@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Webb Application</title>
+    <script src="./js/vue.js"></script>
+
+    <div id="app">
+        <myheading></myheading>
+    </div>
+
+
+</head>
+
+
+<body>
+    <form id="signup">
+        <h3>Sign up</h3>
+        <label for="email">email: </label>
+        <input required type="email" id="email" v-model='email'>
+        <br><br>
+        <label>username: </label>
+        <input id="username" v-model='username'>
+        <br><br>
+        <label for="password">password: </label>
+        <input required type="password" id="password" v-model='password'>
+        <br><br>
+        <button v-on:click='submitForm'>Sign Up</button>
+    </form>
+
+    <form id="signin">
+        <h3>Sign in</h3>
+        <label>username: </label>
+        <input id="signupusername" v-model='signupusername'>
+        <br><br>
+        <label for="password">password: </label>
+        <input required type="password" id="signinpassword" v-model='signinpassword'>
+        <br><br>
+        <button v-on:click='submitLogInForm'>Log In</button>
+    </form>
+    <script src="./js/one.js"></script>
+</body>
+<script>
+
+
+</script>
+
+</html>
