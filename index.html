@@ -3,8 +3,9 @@
 
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Webb Application</title>
+
     <script src="./js/vue.js"></script>
+    
 
     <div id="app">
         <myheading></myheading>
@@ -26,19 +27,21 @@
         <label for="password">password: </label>
         <input required type="password" id="password" v-model='password'>
         <br><br>
-        <button v-on:click='submitForm'>Sign Up</button>
+        <button v-on:click='submitSignUpForm'>Sign Up</button>
     </form>
 
     <form id="signin">
-        <h3>Sign in</h3>
-        <label>username: </label>
-        <input id="signupusername" v-model='signupusername'>
+        <h3>Sign In</h3>
+        <label type="text">Username: </label>
+        <input type="text" id="signinUsername" v-model='username'>
         <br><br>
-        <label for="password">password: </label>
-        <input required type="password" id="signinpassword" v-model='signinpassword'>
+        <label type="text">Password: </label>
+        <input type="password" id="signinPassword" v-model='password'>
         <br><br>
-        <button v-on:click='submitLogInForm'>Log In</button>
+        <button id='btn2' v-on:click='submitLogInForm'>Log In</button>
     </form>
+  
+
     <script src="./js/one.js"></script>
 </body>
 <script>
