@@ -2,51 +2,58 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <script src="./js/vue.js"></script>
-    
-
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <div id="app">
-        <myheading></myheading>
+    <myheading></myheading>
     </div>
-
-
+   
 </head>
 
-
-<body>
-    <form id="signup">
-        <h3>Sign up</h3>
-        <label for="email">email: </label>
-        <input required type="email" id="email" v-model='email'>
-        <br><br>
-        <label>username: </label>
-        <input id="username" v-model='username'>
-        <br><br>
-        <label for="password">password: </label>
-        <input required type="password" id="password" v-model='password'>
-        <br><br>
-        <button v-on:click='submitSignUpForm'>Sign Up</button>
-    </form>
-
-    <form id="signin">
-        <h3>Sign In</h3>
-        <label type="text">Username: </label>
-        <input type="text" id="signinUsername" v-model='username'>
-        <br><br>
-        <label type="text">Password: </label>
-        <input type="password" id="signinPassword" v-model='password'>
-        <br><br>
-        <button id='btn2' v-on:click='submitLogInForm'>Log In</button>
-    </form>
-  
-
-    <script src="./js/one.js"></script>
-</body>
 <script>
+Vue.component('myheading', {
+  template: `<div>
+            <h1>School Activity System</h1>
+            <title>Web App</title>
+            </div>`
+             
+});
+new Vue({
+  el: "#app",
+  data: {
 
-
+  }
+})
 </script>
+<body>
+
+    <form id="register">
+        <label>Email: </label>
+        <input type="email" id="email" v-model="email" required="required">
+        <br><br>
+        <label>Username: </label>
+        <input type="text" id="username" v-model="username">
+        <br><br>
+        <label>Password: </label>
+        <input type="password" id="password" v-model="password">
+        <br><br>
+        <button type="submit" id="registerBtn" v-on:click="submitRegister">Register</button>
+
+    </form>
+<br><br>
+    <form id="login">
+           <label>Username: </label>
+            <input type="text" id="username" v-model="loginUsername">
+            <br><br>
+            <label>Password: </label>
+            <input type="password" id="loginPassword" v-model="loginPassword">
+            <br><br>
+            <button type="button" id="registerBtn" v-on:click="log">Log In</button>
+    
+        </form>
+        <br><br>
+
+</body>
+<script src="js.js"></script>
+
 
 </html>
