@@ -92,13 +92,14 @@ data:{
               { 'topic': 'piano', 'location': 'golders green', 'price': 140, 'review': 7  }
           ]
       },
-      computed: {
-          searchCourses: function () {
-              return this.courses.filter((item) =>{
-                  return item.topic.match(this.search)
-              });
+      computed: { //code which filters based on the topic aka the name of activity
+        searchCourses() {
+            return this.courses.filter(item => {
+                return item.topic.toLowerCase().includes(this.search.toLowerCase())
+            }
+            )
+        }
 
-              }
 
-      }
-  })
+    }
+})
