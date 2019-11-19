@@ -4,29 +4,37 @@
 <head>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <div id="app">
-    <myheading></myheading>
+        <myheading></myheading>
     </div>
-   
+
 </head>
 
 <script>
-Vue.component('myheading', {
-  template: `<div>
+    Vue.component('myheading', {
+        template: `<div>
             <h1>School Activity System</h1>
             <title>Web App</title>
             </div>`
-             
-});
-new Vue({
-  el: "#app",
-  data: {
 
-  }
-})
+    });
+    new Vue({
+        el: "#app",
+        data: {
+
+        }
+    })
 </script>
-<body>
 
+<body>
+    <div>
+        <input type="checkbox" id="adminChk" onclick="adminShow()"> Admin?
+    </div>
     <form id="register">
+
+        <label>Admin ID: </label>
+        <input type='number' id="Admin" style="display:none" v-model="adminId" required="required"
+            placeholder="Numbers Only!">
+        <br><br>
         <label>Email: </label>
         <input type="email" id="email" v-model="email" required="required">
         <br><br>
@@ -39,18 +47,18 @@ new Vue({
         <button type="submit" id="registerBtn" v-on:click="submitRegister">Register</button>
 
     </form>
-<br><br>
+    <br><br>
     <form id="login">
-           <label>Username: </label>
-            <input type="text" id="username" v-model="loginUsername">
-            <br><br>
-            <label>Password: </label>
-            <input type="password" id="loginPassword" v-model="loginPassword">
-            <br><br>
-            <button type="button" id="registerBtn" v-on:click="log">Log In</button>
-    
-        </form>
+        <label>Username: </label>
+        <input type="text" id="username" v-model="loginUsername">
         <br><br>
+        <label>Password: </label>
+        <input type="password" id="loginPassword" v-model="loginPassword">
+        <br><br>
+        <button type="button" id="registerBtn" v-on:click="log">Log In</button>
+
+    </form>
+    <br><br>
 
 </body>
 <script src="js.js"></script>

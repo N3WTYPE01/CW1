@@ -1,13 +1,86 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <h1>page 2</h1>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    </head>
-    <body>
-        <button onclick="indexBtn()">Log In Page</button>
-    </body>
-    <script>function indexBtn(){
+
+<head>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <div id="app">
+        <h1>{{message}}</h1>
+
+    </div>
+    <input type="text" v-model="search" placeholder="input">
+</head>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello',
+           
+        }
+    });
+
+</script>
+
+<body>
+    <div id="app2" class="container mt-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Review out of 10</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item, index in searchCourses" class="itemcon" id="item">
+                    <th scope="row">{{index + 1}}</th>
+                    <td>{{item.topic}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.location}}</td>
+                    <td>${{item.price}}</td>
+                    <td>{{item.review}} /10 <br>
+                        <select>
+                            <option >1</option>
+                            <option >2</option>
+                            <option >3</option>
+                            <option >4</option>
+                            <option >5</option>
+                            <option >6</option>
+                            <option >7</option>
+                            <option >8</option>
+                            <option >9</option>
+                            <option >10</option>
+                        </select>
+                    <button>Submit Review Score</button></td>
+
+                </tr>
+                <tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <button onclick="indexBtn()">Log Out</button>
+</body>
+<script>function indexBtn() {
         window.location.href = 'index.html';
-        }</script>
+        window.location.reload;
+    }
+</script>
+<script src="./js/one.js"></script>
+
 </html>
