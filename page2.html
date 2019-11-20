@@ -10,7 +10,7 @@
         <h1>{{message}}</h1>
 
     </div>
-    <input type="text" v-model="search" placeholder="input">
+   <button onclick="indexBtn()">Log Out</button>
 </head>
 <script>
     var app = new Vue({
@@ -22,9 +22,22 @@
     });
 
 </script>
+<div id="filterApp">
+<select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+      <span>Selected: {{ selected }}</span>
+
+    </div>
+
+
 
 <body>
     <div id="app2" class="container mt-4">
+            <input type='text' v-model="item.topic"> User Input
+            <input type="text" v-model="search" placeholder="Search for Activity">
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -34,14 +47,15 @@
                     <th scope="col">Location</th>
                     <th scope="col">Price</th>
                     <th scope="col">Review out of 10</th>
+                    <th scope="col">Profile</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="item, index in searchCourses" class="itemcon" id="item">
+                <tr v-for="item, index in searchCourses " class="itemcon" id="item">
                     <th scope="row">{{index + 1}}</th>
                     <td>{{item.topic}}</td>
                     <td>{{item.description}}</td>
-                    <td>{{item.location}}</td>
+                    <td>{{item.Length}} Weeks</td>
                     <td>${{item.price}}</td>
                     <td>{{item.review}} /10 <br>
                         <select>
@@ -57,30 +71,11 @@
                             <option >10</option>
                         </select>
                     <button>Submit Review Score</button></td>
+                    <td>Teacher!</td>
 
                 </tr>
                 <tr>
 
             </tbody>
         </table>
-    </div>
-
-
-
-
-
-
-
-
-
-
-    <button onclick="indexBtn()">Log Out</button>
-</body>
-<script>function indexBtn() {
-        window.location.href = 'index.html';
-        window.location.reload;
-    }
-</script>
-<script src="./js/one.js"></script>
-
-</html>
+ 
