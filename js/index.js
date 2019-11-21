@@ -45,7 +45,7 @@ var vm = new Vue({
                     alert('Email already exists!');
                     return;
                 }
-                if (users.some(function (user) { return user.username === newUser})) {
+                if (users.some(function (user) { return user.username === newUser })) {
                     alert('Username already exists!');
                     return;
                 }
@@ -76,21 +76,44 @@ var vm = new Vue({
                 users = JSON.parse(localStorage.getItem('users'));
             };
             if (users) { //user validation if username and password matches localstorage
-                if (users.some(function (user) { return user.username === logUsername, user.password === logPassword })) {
+                if (users.some(function (user) { return user.username == logUsername & user.password == logPassword })) {
                     alert('User ' + logUsername + ' Logged In!');
+                    users.push({ 'username': logUsername });
+                    localStorage.setItem('loggedUser', JSON.stringify(logUsername));
                     window.location.href = 'page2.html', true;
                     return;
                 }
-            }
-            else (users)
-            if (users.some(function (user) { return user.username !== logUsername })) {
-                alert('Incorrect Username or Password. Please try again.')
-                return;
+                //response if both username and password wrong
+                if (users.some(function (user) { return user.password != logPassword & user.username != logUsername })) {
+                    alert('Incorrect Username or Password. Please try again.');
+                    return;
+                }
+
+                //response if only username 
+                if (users.some(function (user) { return user.username != logUsername & user.password == logPassword })) {
+                    alert('Incorrect Username Please try again.');
+                    return;
+                }
+                //if only password
+                if (users.some(function (user) { return user.username == logUsername & user.password != logPassword })) {
+                    alert('Incorrect Password. Please try again.');
+                    return;
+                }
+
+
+                else (users)
+                //if only password
+                if (users.some(function (user) { return user.username == logUsername & user.password != logPassword })) {
+                    alert('Incorrect Password. Please try again.')
+                    return;
+                }
             }
         }
     }
 }
+
 )
+
 
 //vue instance for admin login
 
@@ -109,16 +132,17 @@ var vm = new Vue({
             var newEmail = this.admEmail;
             var newID = this.admId
             if (localStorage.getItem('admins')) { // 'users' is an array of objects
-            admins = JSON.parse(localStorage.getItem('admins'));
+                admins = JSON.parse(localStorage.getItem('admins'));
             };
             if (admins) {
-                if (admins.some(function (admins) { return admins.email === newEmail})) {
+                if (admins.some(function (admins) { return admins.email === newEmail })) {
                     alert('Email already exists!');
                     return;
                 }
-                if (admins.some(function (admins) { return admins.adminID === newID})) {
+                if (admins.some(function (admins) { return admins.adminID === newID })) {
                     alert('ID already exists!');
-                    return;}
+                    return;
+                }
 
                 admins.push({ 'adminID': this.admId, 'email': this.admEmail, 'username': this.admUsername, 'password': this.admPassword });
                 localStorage.setItem('admins', JSON.stringify(admins));
@@ -144,22 +168,35 @@ var vm = new Vue({
             var adminLogPassword = this.loginAdmPassword;
             var adminLogAdmID = this.loginAdmID;
             if (localStorage.getItem('admins')) { // 'users' is an array of objects
-            admins = JSON.parse(localStorage.getItem('admins'));
+                admins = JSON.parse(localStorage.getItem('admins'));
             };
             if (admins) { //user validation if username and password matches localstorage
-                if (admins.some(function (admins) { return  admins.password === adminLogPassword, admins.adminID === adminLogAdmID })) {
+                if (admins.some(function (admins) { return admins.password == adminLogPassword & admins.adminID == adminLogAdmID })) {
                     alert('Admin logged In!');
+                    admins.push({ 'username': adminLogAdmID});
+                    localStorage.setItem('loggedUser', JSON.stringify(adminLogAdmID));
                     window.location.href = 'page3.html', true;
+                    return;
+                }
+                if (admins.some(function (admins) { return admins.adminID != adminLogAdmID & admins.password == adminLogPassword})) {
+                    alert('Incorrect ID. Please try again.');
+                    return;
+                }
+                if (admins.some(function (admins) { return admins.adminID == adminLogAdmID & admins.password != adminLogPassword})) {
+                    alert('Incorrect password. Please try again.');
                     return;
                 }
             }
             else (admins)
-            if (admins.some(function (admins) { return admins.adminID !== adminLogAdmID })) {
+            if (admins.some(function (admins) { return admins.adminID != adminLogAdmID })) {
                 alert('Incorrect Username or Password. Please try again.');
             }
         }
     }
 }
 )
+
+
+
 
 

@@ -5,8 +5,12 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
 <head>
-    <h1>User Service</h1>
-
+    <h1>User Service</h1> 
+    <h3 id="displayUser"></h3>
+<script>
+var a = localStorage.getItem('loggedUser');
+document.getElementById('displayUser').innerHTML = "Activity System for User" + a;
+</script>
    
  
  
@@ -31,7 +35,10 @@
                     <input type="radio" name="options" id="option3" autocomplete="off" v-on:click="sortHighestPrice"> Most Expensive
                 </label>
                 <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option3" autocomplete="off" v-on:click="sortLowestPrice"> Cheapest
+                    <input type="radio" name="options" id="option4" autocomplete="off" v-on:click="sortLowestPrice"> Cheapest
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option5" autocomplete="off" v-on:click="sortActivLow"> Alpha Low
                 </label>
               
             </div>

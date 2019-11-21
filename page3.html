@@ -6,7 +6,12 @@
     
 <head>
     <h1>Admin Editor</h1>
-
+    <h3 id="displayID"></h3>
+    <script>
+            var b = localStorage.getItem('loggedUser');
+            document.getElementById('displayID').innerHTML = "Admin ID: " + b;
+            </script>
+               
    
  
  
