@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <h1>User Service</h1>
-        <button onclick="logOut()">Log Out</button>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+<head>
+    <h1>User Service</h1>
+
+   
+ 
+ 
+</head>
+
+<body>
+    <div id="app4" class="container mt-4">
+            <button class="btn btn-secondary" onclick="logOut()">Log Out</button>
+            
+        <h3>Search Activities: <input class="form-control" v-model="filterText" /></h3>
+        <h3>Sort Activity by:
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option1" autocomplete="off" v-on:click="sortLowest">
+                    Lowest Review Score
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option2" autocomplete="off" v-on:click="sortHighest"> Highest
+                    Review Score
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off" v-on:click="sortHighestPrice"> Most Expensive
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off" v-on:click="sortLowestPrice"> Cheapest
+                </label>
+              
+            </div>
+        </h3>
         
-    </head>
-    <body>
-        <div id="app4"  class="container mt-4">
-            <h3>Search a Activity: <input v-model="filterText" /></h3>
-            <h3>Sort Activity by: 
-                
-              <button v-on:click="sortLowest">Least Reviewed</button>
-              <button v-on:click="sortHighest">Highest Reviewed</button>
-              <button v-on:click="sortHighestPrice">Most Expensive</button>
-              <button v-on:click="sortLowestPrice">Cheapest</button>
-            </h3>
-            <table class="table table-bordered">
-              <thead>
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                  <th v-for="key in columns">
-                    {{ key }}
-                  </th>
+                    <th v-for="title in columns">
+                        {{ title }}
+                    </th>
+                   
                 </tr>
-              </thead>
-              <tbody>
+            </thead>
+            <tbody>
                 <tr v-for="items in filteredActivitys">
-                  <td v-for="key in columns">
-                    {{items[key]}}
-                  </td>
+                    <td v-for="content in columns">
+                        {{items[content]}}
+                    </td>
                 </tr>
-                <tbody>
-            </table>
-          </div>
-          <script src="./js/tableContent.js"></script>
-    </body>
+            <tbody>
+        </table>
+    </div>
+    <script src="./js/tableContent.js"></script>
+</body>
+
 </html>

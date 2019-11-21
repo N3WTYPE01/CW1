@@ -84,7 +84,8 @@ var vm = new Vue({
             }
             else (users)
             if (users.some(function (user) { return user.username !== logUsername })) {
-                alert('Incorrect Username or Password. Please try again.');
+                alert('Incorrect Username or Password. Please try again.')
+                return;
             }
         }
     }
